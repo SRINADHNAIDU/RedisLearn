@@ -1,0 +1,23 @@
+﻿services:
+  redis:
+    container_name: redis_db
+    ports:
+      - "6379:6379"
+    networks:
+      - redislearn_default
+      
+  redis-learn:
+    container_name: redis-learn
+    ports:
+      - "5002:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - redis
+    networks:
+      - redislearn_default
+        
+networks:
+   redislearn_default:
+     driver: bridge
+    
