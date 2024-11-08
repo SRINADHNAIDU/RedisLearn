@@ -1,6 +1,8 @@
 ﻿services:
+  redis:
+    image: redis/redis-stack:latest
   redis-learn:
     image: redislearn
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: RedisLearn/Dockerfile
